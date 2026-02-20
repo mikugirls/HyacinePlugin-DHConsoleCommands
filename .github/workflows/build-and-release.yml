@@ -34,6 +34,12 @@ jobs:
       - name: Build project
         run: dotnet build --configuration Release --no-restore
 
+      - name: Upload DLL as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HyacinePlugin-DLL
+          path: ./bin/Release/net9.0/HyacinePlugin-DHConsoleCommands.dll
+
       - name: Upload DLL to Release
         uses: softprops/action-gh-release@v2
         with:
