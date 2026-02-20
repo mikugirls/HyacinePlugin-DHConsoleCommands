@@ -9,7 +9,7 @@ on:
         description: 'Release tag to upload'
         required: true
         type: string
-        default: '1.2.0'
+        default: '1.0'
 
 permissions:
   contents: write
