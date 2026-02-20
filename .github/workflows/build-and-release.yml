@@ -4,11 +4,15 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Release tag to upload'
+        required: true
+        type: string
+        default: '1.2.0'
 
 permissions:
-  actions: write
   contents: write
-  id-token: write
 
 jobs:
   build-and-upload:
@@ -16,6 +20,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -31,7 +37,7 @@ jobs:
       - name: Upload DLL to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            ./bin/Release/**/HyacinePlugin-DHConsoleCommands.dll
+          files: ./bin/Release/net9.0/HyacinePlugin-DHConsoleCommands.dll
+          tag_name: ${{ github.event.inputs.tag_name || github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
