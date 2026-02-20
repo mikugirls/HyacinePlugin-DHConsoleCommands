@@ -9,7 +9,7 @@ using HyacineCore.Server.Util;
 
 namespace HyacinePlugin.DHConsoleCommands;
 
-[PluginInfo("DHConsoleCommands", "DHConsole is ready to use commands", "1.2.0")]
+[PluginInfo("DHConsoleCommands", "DHConsole is ready to use commands", "1.0")]
 public class DHConsoleCommands : IPlugin
 {
     private readonly Logger _logger = new("DHConsoleCommands");
