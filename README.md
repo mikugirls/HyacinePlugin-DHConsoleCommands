@@ -2,7 +2,7 @@ English | [简体中文](README.zh-CN.md)
 
 # HyacinePlugin-DHConsoleCommands
 
-No i18n support.
+Modified from [Anyrainel/DanhengPlugin-DHConsoleCommands](https://github.com/Anyrainel/DanhengPlugin-DHConsoleCommands). No i18n support.
 
 ## Usage
 
