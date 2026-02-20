@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
 
@@ -28,11 +28,9 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Upload DLL to Release
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./bin/Release/**/HyacinePlugin-DHConsoleCommands.dll
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./bin/Release/net9.0/HyacinePlugin-DHConsoleCommands.dll
-          asset_name: HyacinePlugin-DHConsoleCommands.dll
-          asset_content_type: application/octet-stream
