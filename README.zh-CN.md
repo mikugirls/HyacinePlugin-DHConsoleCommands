@@ -2,7 +2,7 @@
 
 # HyacinePlugin-DHConsoleCommands
 
-使用的原生指令。不支持国际化 (i18n)。
+修改自[Anyrainel/DanhengPlugin-DHConsoleCommands](https://github.com/Anyrainel/DanhengPlugin-DHConsoleCommands)，使用的原生指令。不支持国际化 (i18n)。
 
 ## 用法 (Usage)
 
